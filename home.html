@@ -1,0 +1,563 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SUACE - SABORES EXOTICOS</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="font.css">
+    <link href="css/animate.css" rel="stylesheet" type="text/css" media="all">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="fontawesome/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============ NAVBAR ============ */
+        .navbar {
+            padding: 8px 0 !important;
+            background-color: rgba(10, 14, 26, 0.95) !important;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .navbar .container {
+            display: flex;
+            align-items: center;
+            flex-wrap: nowrap;
+            max-width: 1400px;
+        }
+
+        .navbar-brand {
+            padding: 0 !important;
+            display: flex !important;
+            align-items: center;
+            flex-shrink: 0;
+            margin-right: 20px;
+        }
+
+        .navbar-brand img {
+            width: 60px;
+            height: 45px;
+            object-fit: contain;
+        }
+
+        .navbar-brand .logo_title {
+            color: #fff;
+            font-size: 16px;
+            font-weight: 700;
+            white-space: nowrap;
+            letter-spacing: 1.5px;
+            margin-left: 10px;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+        }
+
+        .navbar-nav {
+            gap: 4px;
+            align-items: center;
+        }
+
+        .navbar-nav .nav-link {
+            color: rgba(255, 255, 255, 0.85) !important;
+            font-size: 13px !important;
+            padding: 8px 12px !important;
+            transition: color 0.3s;
+            white-space: nowrap;
+        }
+
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            color: #d4af37 !important;
+        }
+
+        /* ============ BADGE DÓLAR EN NAVBAR ============ */
+        .badge-dolar-nav {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);
+            color: #0a0e1a;
+            padding: 7px 16px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.5);
+            margin-left: 10px;
+            transition: all 0.3s;
+            cursor: default;
+            white-space: nowrap;
+        }
+
+        .badge-dolar-nav:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.7);
+        }
+
+        .badge-dolar-nav i {
+            font-size: 14px;
+        }
+
+        .badge-dolar-nav #precio-dolar-nav {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            font-size: 15px;
+            color: #0a0e1a;
+        }
+
+        .badge-dolar-nav .small-text {
+            font-size: 10px;
+            font-weight: 600;
+            opacity: 0.8;
+            text-transform: uppercase;
+        }
+
+        /* ============ BOTONES LOGIN ============ */
+        .navbar-buttons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            margin-left: 15px;
+        }
+
+        .btn-login-top {
+            background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);
+            color: #0a0e1a !important;
+            border: 2px solid #d4af37;
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .btn-login-top:hover {
+            background: transparent;
+            color: #d4af37 !important;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
+            text-decoration: none;
+        }
+
+        .btn-login-top.btn-outline {
+            background: transparent;
+            color: #d4af37 !important;
+            box-shadow: none;
+        }
+
+        .btn-login-top.btn-outline:hover {
+            background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);
+            color: #0a0e1a !important;
+        }
+
+        .btn-login-top i { font-size: 12px; }
+
+        @keyframes shine {
+            0% { box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4); }
+            50% { box-shadow: 0 4px 25px rgba(212, 175, 55, 0.7); }
+            100% { box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4); }
+        }
+
+        .btn-login-top:not(.btn-outline) {
+            animation: shine 3s ease-in-out infinite;
+        }
+
+        /* ============ RESPONSIVE ============ */
+        @media (max-width: 991px) {
+            .navbar .container {
+                flex-wrap: wrap;
+            }
+            .navbar-nav {
+                text-align: center;
+                padding: 15px 0;
+                gap: 0;
+                width: 100%;
+            }
+            .navbar-nav .nav-item {
+                margin: 3px 0;
+            }
+            .navbar-buttons {
+                flex-direction: column;
+                width: 100%;
+                margin-left: 0;
+                margin-top: 10px;
+                gap: 8px;
+            }
+            .btn-login-top {
+                width: 100%;
+                justify-content: center;
+                padding: 10px 20px;
+                font-size: 12px;
+            }
+            .badge-dolar-nav {
+                margin: 10px auto;
+                display: flex;
+                justify-content: center;
+            }
+        }
+    </style>
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="custom.js"></script>
+    <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $('.skillbar').skillBars({
+                from: 0,
+                speed: 4000, 
+                interval: 100,
+                decimals: 0,
+            });    
+        });
+    </script>
+</head>
+
+<body>
+
+<!-- ============================================================
+     NAVBAR - Sin "Marcas", con dólar en su lugar
+     ============================================================ -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-default">
+    <div class="container">
+
+        <a class="navbar-brand" href="home.html">
+            <img src="image/logo2.png" alt="SUACE">
+            <span class="logo_title">SUACE - SABORES EXOTICOS</span>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegación">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="home.html">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="comprar.php">Bebidas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">Nosotros</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contactanos</a>
+
+                <!-- ✨ DÓLAR EN EL LUGAR DE "MARCAS" ✨ -->
+                <li class="nav-item">
+                    <div class="badge-dolar-nav" title="Dolar Paralelo Bolivia - Actualizacion automatica cada 5 min">
+                        <i class="fas fa-dollar-sign"></i>
+                        <span id="precio-dolar-nav"></span>
+                        <span class="small-text">Bs</span>
+                    </div>
+                </li>
+
+                <li class="navbar-buttons">
+                    <a href="registro.php" class="btn-login-top btn-outline">
+                        <i class="fas fa-user-plus"></i>
+                        <span>Registrarse</span>
+                    </a>
+                    <a href="login.php" class="btn-login-top">
+                        <i class="fas fa-sign-in-alt"></i>
+                        <span>Iniciar Sesion</span>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- ============================================================
+     CARRUSEL
+     ============================================================ -->
+<div class="container-fluid" style="width: 100%">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="4000" data-pause="hover">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="image/b10.jpg" class="d-block w-100 img-fluid" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="image/b7.jpg" class="d-block w-100 img-fluid" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="image/b4.jpg" class="d-block w-100 img-fluid" alt="...">
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Anterior</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Siguiente</span>
+        </a> 
+    </div>
+</div>
+
+<!-- ============================================================
+     SECCIÓN ABOUT
+     ============================================================ -->
+<section class="banner-main-agiles py-5">
+    <div class="banner-bottom-w3layouts" id="about">
+        <div class="container pt-xl-5 pt-lg-3">
+            <div class="row mt-5">
+                <div class="col-lg-6">
+                    <p class="text-uppercase">Unas palabras</p>
+                    <h2 class="aboutright">Nuestros licores son algunos de los mejores del mundo!</h2>
+                    <p>
+                        Ofrecemos una gran variedad de licores para todos los presupuestos y cualquier ocasion, desde un rico Chardonnay hasta un elegante y cremoso Brut. Contamos con más de 100 tipos diferentes de licores, de los cuales entre el 20% y el 30% son licores de reserva especialmente seleccionados para usted. SUACE - SABORES EXOTICOS DE MI TIERRA se compromete a ofrecer licores de la mas alta calidad y distincion. Bienvenido a nuestro sitio web!
+                    </p>
+                    <button type="button" class="btn btn-warning button mt-md-5 mt-4" onclick="window.location='blog.html'">
+                        <span>Ver mas</span>
+                    </button>
+                </div>
+
+                <div class="col-lg-6 about-img text-lg-enter">
+                    <center>
+                        <img src="image/welcome.png" alt="" class="img-fluid" style="width: 400px; height: 400px;">
+                    </center>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     CONTADOR DE VISITAS
+     ============================================================ -->
+<div id="counter">
+    <div class="container p-5">
+        <div class="row">
+
+            <div class="col-lg-4 col-md-12 col-sm-12">
+                <h1>1</h1>
+                <p>Sucursales</p>
+            </div>
+
+            <div class="col-lg-4 col-md-12 col-sm-12">
+                <h1 id="contador-visitas">0</h1>
+                <p>Visitantes</p>
+                <small id="visitas-hoy" style="color: #d4af37; font-size: 13px; display: block; margin-top: 5px;">Hoy: 0</small>
+            </div>
+
+            <div class="col-lg-4 col-md-12 col-sm-12">
+                <h1>10</h1>
+                <p>Premios</p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<br><br><br>
+
+<!-- ============================================================
+     ESTADÍSTICAS
+     ============================================================ -->
+<div class="services stats wthree-sub jarallax">
+    <div class="container"> 
+        <div class="col-sm-6 col-xs-5 stats_grid_left"></div>
+
+        <div class="col-sm-6 col-xs-7 stats_grid_right">
+            <h3 class="stats-title statstitle2">Nuestras estadisticas</h3>  
+
+            <div class="skillbar" data-percent="85">
+                <span class="skillbar-title" style="background: #b5c0e2;">Whisky</span>
+                <p class="skillbar-bar" style="background: #cdcfee;"></p>
+                <span class="skill-bar-percent"></span>
+            </div>
+
+            <div class="skillbar" data-percent="64">
+                <span class="skillbar-title" style="background: #b5c0e2;">Vodka</span>
+                <p class="skillbar-bar" style="background: #cdcfee;"></p>
+                <span class="skill-bar-percent"></span>
+            </div>
+
+            <div class="skillbar" data-percent="80">
+                <span class="skillbar-title" style="background: #b5c0e2;">Tequila</span>
+                <p class="skillbar-bar" style="background: #cdcfee;"></p>
+                <span class="skill-bar-percent"></span>
+            </div>
+
+            <div class="skillbar" data-percent="56">
+                <span class="skillbar-title" style="background: #b5c0e2;">Vino</span>
+                <p class="skillbar-bar" style="background: #cdcfee;"></p>
+                <span class="skill-bar-percent"></span>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+    </div> 
+</div>
+
+<br><br><br><br><br><br><br>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer>
+    <div class="col-lg-12 text-center">
+        <br><br>
+        <p>
+            Copyright @
+            <a href="home.html">SUACE - SABORES EXOTICOS DE MI TIERRA</a>
+        </p>
+        <br>
+        <a href="home.html">
+            <img src="image/logo.jpg" width="45" height="45">
+        </a>
+        <br><br>
+        <span class="social">
+            <a href="https://t.me/"><img src="image/telegram.png" width="35" height="35"></a>
+            <a href="https://github.com/"><img src="image/github.png" width="35" height="35"></a>
+        </span>
+        <br><br><br>
+    </div>
+</footer>
+
+<!-- ============================================================
+     SCRIPT: CONTADOR VISITAS + DÓLAR PARALELO
+     ============================================================ -->
+<script>
+// ============================================================
+// 1. CONTADOR DE VISITAS
+// ============================================================
+function cargarVisitas() {
+    fetch('contar_visita.php')
+        .then(response => response.json())
+        .then(data => {
+            const contadorHist = document.getElementById('contador-visitas');
+            const contadorHoy = document.getElementById('visitas-hoy');
+            
+            if (contadorHist) {
+                animarNumero(contadorHist, 0, data.total_historico, 1500);
+            }
+            if (contadorHoy) {
+                contadorHoy.textContent = 'Hoy: ' + data.total_hoy;
+            }
+            
+            console.log('✅ Visitas:', data);
+        })
+        .catch(err => {
+            console.error('Error contador:', err);
+            const contador = document.getElementById('contador-visitas');
+            if (contador && contador.textContent === '0') {
+                contador.textContent = '500';
+            }
+        });
+}
+
+function animarNumero(elemento, inicio, fin, duracion) {
+    if (fin <= inicio) {
+        elemento.textContent = fin;
+        return;
+    }
+    
+    const pasos = 40;
+    const incremento = (fin - inicio) / pasos;
+    let actual = inicio;
+    let paso = 0;
+    
+    const timer = setInterval(() => {
+        paso++;
+        actual += incremento;
+        elemento.textContent = Math.floor(actual);
+        
+        if (paso >= pasos) {
+            clearInterval(timer);
+            elemento.textContent = fin;
+        }
+    }, duracion / pasos);
+}
+
+// ============================================================
+// 2. DÓLAR PARALELO (en el navbar)
+// ============================================================
+function cargarDolar() {
+    const precioEl = document.getElementById('precio-dolar-nav');
+    
+    if (!precioEl) return;
+    
+    fetch('dolar_paralelo.php?t=' + Date.now())
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                const precioAnterior = parseFloat(precioEl.textContent) || 0;
+                const precioNuevo = parseFloat(data.precio);
+                
+                if (precioAnterior !== precioNuevo) {
+                    animarPrecio(precioEl, precioAnterior, precioNuevo);
+                } else {
+                    precioEl.textContent = precioNuevo.toFixed(2);
+                }
+                
+                console.log('✅ Dólar:', data);
+            } else {
+                throw new Error('Sin datos');
+            }
+        })
+        .catch(err => {
+            console.error('Error dólar:', err);
+        });
+}
+
+function animarPrecio(elemento, desde, hasta) {
+    const duracion = 800;
+    const pasos = 20;
+    const incremento = (hasta - desde) / pasos;
+    let actual = desde;
+    let paso = 0;
+    
+    const timer = setInterval(() => {
+        paso++;
+        actual += incremento;
+        elemento.textContent = actual.toFixed(2);
+        
+        if (paso >= pasos) {
+            clearInterval(timer);
+            elemento.textContent = hasta.toFixed(2);
+        }
+    }, duracion / pasos);
+}
+
+// ============================================================
+// INICIALIZAR
+// ============================================================
+document.addEventListener('DOMContentLoaded', function() {
+    cargarVisitas();
+    cargarDolar();
+    
+    // Actualizar dólar cada 5 minutos
+    setInterval(cargarDolar, 300000);
+    
+    // Actualizar visitas de hoy cada 1 minuto
+    setInterval(() => {
+        fetch('contar_visita.php')
+            .then(r => r.json())
+            .then(data => {
+                const contadorHoy = document.getElementById('visitas-hoy');
+                if (contadorHoy) contadorHoy.textContent = 'Hoy: ' + data.total_hoy;
+            })
+            .catch(() => {});
+    }, 60000);
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contacto | SUACE - Sabores Exoticos</title>
+    
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="font.css">
+    <link href="css/animate.css" rel="stylesheet" type="text/css" media="all">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="fontawesome/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ============ NAVBAR ============ */
+        .navbar {
+            padding: 8px 0 !important;
+            background-color: rgba(10, 14, 26, 0.95) !important;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .navbar .container {
+            display: flex;
+            align-items: center;
+            flex-wrap: nowrap;
+            max-width: 1400px;
+        }
+
+        .navbar-brand {
+            padding: 0 !important;
+            display: flex !important;
+            align-items: center;
+            flex-shrink: 0;
+            margin-right: 20px;
+        }
+
+        .navbar-brand img {
+            width: 60px;
+            height: 45px;
+            object-fit: contain;
+        }
+
+        .navbar-brand .logo_title {
+            color: #fff;
+            font-size: 16px;
+            font-weight: 700;
+            white-space: nowrap;
+            letter-spacing: 1.5px;
+            margin-left: 10px;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+        }
+
+        .navbar-nav {
+            gap: 4px;
+            align-items: center;
+        }
+
+        .navbar-nav .nav-link {
+            color: rgba(255, 255, 255, 0.85) !important;
+            font-size: 13px !important;
+            padding: 8px 12px !important;
+            transition: color 0.3s;
+            white-space: nowrap;
+        }
+
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            color: #d4af37 !important;
+        }
+
+        .dropdown-menu {
+            background-color: rgba(19, 24, 38, 0.98);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .dropdown-item {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 13px;
+            transition: all 0.3s;
+        }
+
+        .dropdown-item:hover {
+            background-color: rgba(212, 175, 55, 0.2);
+            color: #d4af37;
+        }
+
+        /* ============ BOTONES DE LOGIN/REGISTRO ============ */
+        .navbar-buttons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            margin-left: 15px;
+        }
+
+        .btn-login-top {
+            background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);
+            color: #0a0e1a !important;
+            border: 2px solid #d4af37;
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .btn-login-top:hover {
+            background: transparent;
+            color: #d4af37 !important;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
+            text-decoration: none;
+        }
+
+        .btn-login-top.btn-outline {
+            background: transparent;
+            color: #d4af37 !important;
+            box-shadow: none;
+        }
+
+        .btn-login-top.btn-outline:hover {
+            background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);
+            color: #0a0e1a !important;
+        }
+
+        .btn-login-top i { font-size: 12px; }
+
+        /* ============ FORMULARIO CONTACTO ============ */
+        .contact-section {
+            background-image: url(image/b4.jpg);
+            background-size: cover;
+            background-attachment: fixed;
+            padding: 100px 0 60px 0;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.75);
+        }
+
+        .contact-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .mision-text {
+            color: #fff;
+            padding-right: 30px;
+        }
+
+        .mision-text h1 {
+            font-family: 'Cinzel', serif;
+            color: #d4af37;
+            font-size: 36px;
+            margin-bottom: 25px;
+            line-height: 1.3;
+        }
+
+        .mision-text p {
+            font-size: 15px;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        .contact-form {
+            background: rgba(10, 14, 26, 0.85);
+            padding: 35px;
+            border-radius: 15px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .contact-form h3 {
+            color: #d4af37;
+            font-family: 'Cinzel', serif;
+            margin-bottom: 25px;
+            font-size: 22px;
+            letter-spacing: 1px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid transparent;
+            border-radius: 10px;
+            font-size: 14px;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s;
+            background: #fff;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: #999;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: #d4af37;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .btn-enviar {
+            background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);
+            color: #0a0e1a;
+            border: none;
+            padding: 14px 40px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .btn-enviar:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.6);
+        }
+
+        /* ============ BOTÓN VOLVER ============ */
+        .btn-volver {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);
+            color: #0a0e1a;
+            padding: 12px 22px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 13px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+            transition: all 0.3s;
+            z-index: 999;
+            font-family: 'Poppins', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-volver:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.7);
+            color: #0a0e1a;
+            text-decoration: none;
+        }
+
+        /* ============ FOOTER ============ */
+        footer {
+            background: #0a0e1a;
+            color: #fff;
+            padding: 40px 0 30px;
+            text-align: center;
+        }
+
+        footer a {
+            color: #d4af37;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        footer a:hover {
+            color: #f4e5b1;
+        }
+
+        .social a {
+            display: inline-block;
+            margin: 0 10px;
+            transition: transform 0.3s;
+        }
+
+        .social a:hover {
+            transform: translateY(-3px);
+        }
+
+        /* ============ RESPONSIVE ============ */
+        @media (max-width: 991px) {
+            .navbar .container {
+                flex-wrap: wrap;
+            }
+            .navbar-nav {
+                text-align: center;
+                padding: 15px 0;
+                gap: 0;
+                width: 100%;
+            }
+            .navbar-nav .nav-item {
+                margin: 3px 0;
+            }
+            .navbar-buttons {
+                flex-direction: column;
+                width: 100%;
+                margin-left: 0;
+                margin-top: 10px;
+                gap: 8px;
+            }
+            .btn-login-top {
+                width: 100%;
+                justify-content: center;
+                padding: 10px 20px;
+                font-size: 12px;
+            }
+            .mision-text {
+                padding-right: 0;
+                margin-bottom: 40px;
+            }
+            .mision-text h1 {
+                font-size: 26px;
+            }
+            .contact-form {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAVBAR (Idéntico al de home.html)
+     ============================================================ -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-default">
+    <div class="container">
+
+        <!-- LOGO + TÍTULO -->
+        <a class="navbar-brand" href="home.html">
+            <img src="image/logo2.png" alt="SUACE">
+            <span class="logo_title">SUACE - Sabores Exoticos</span>
+        </a>
+
+        <!-- BOTÓN HAMBURGUESA (móvil) -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegación">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- MENÚ -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="home.html">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="comprar.php">Bebidas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">Nosotros</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="contact.html">Contactanos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="blog.html">Blog</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Marcas
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="whisky.html">Whisky</a>
+                        <a class="dropdown-item" href="liqueur_history.html">Licor</a>
+                        <a class="dropdown-item" href="Tequila_history.html">Tequila</a>
+                        <a class="dropdown-item" href="Vodka_history.html">Vodka</a>
+                        <a class="dropdown-item" href="rum_history.html">Ron</a>
+                    </div>
+                </li>
+
+                <!-- BOTONES DE LOGIN/REGISTRO -->
+                <li class="navbar-buttons">
+                    <a href="registro.php" class="btn-login-top btn-outline">
+                        <i class="fas fa-user-plus"></i>
+                        <span>Registrarse</span>
+                    </a>
+                    <a href="login.php" class="btn-login-top">
+                        <i class="fas fa-sign-in-alt"></i>
+                        <span>Iniciar Sesion</span>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- ============================================================
+     FIN NAVBAR
+     ============================================================ -->
+
+
+<!-- ============================================================
+     SECCIÓN DE CONTACTO
+     ============================================================ -->
+<section class="contact-section">
+    <div class="container contact-content">
+        <div class="row">
+            
+            <!-- MISIÓN -->
+            <div class="col-lg-6 mision-text">
+                <h1>La mision de nuestra tienda de licores</h1>
+                <p>
+                    Nuestra mision es buscar constantemente cerveza, vino y bebidas espirituosas de alta calidad para compartir con nuestros clientes y nuestra comunidad, y ofrecer estos productos en un entorno de compra optimo: amable, informativo y conveniente. Nuestra vision es ser la mejor tienda privada de licores de San Jose de Chiquitos, enfocandonos apasionadamente en productos artesanales, precios accesibles, servicio excepcional y sostenibilidad.
+                </p>
+            </div>
+            
+            <!-- FORMULARIO -->
+            <div class="col-lg-6">
+                <div class="contact-form">
+                    <h3>INFORMACION DEL CLIENTE</h3>
+                    
+                    <form id="formContacto">
+                        <input type="text" name="nombre" id="nombre" placeholder="Nombre completo" required>
+                        <input type="number" name="edad" id="edad" placeholder="Edad" min="1" max="120">
+                        <input type="text" name="telefono" id="telefono" placeholder="Numero de telefono" required>
+                        <input type="email" name="correo" id="correo" placeholder="Correo electronico">
+                        <input type="text" name="direccion" id="direccion" placeholder="Direccion">
+                        <textarea name="mensaje" id="mensaje" rows="3" placeholder="Escribe tu mensaje..."></textarea>
+                        
+                        <button type="submit" class="btn-enviar">
+                            <i class="fas fa-paper-plane"></i>
+                            ENVIAR MENSAJE
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     BOTÓN VOLVER AL INICIO (flotante)
+     ============================================================ -->
+<a href="home.html" class="btn-volver">
+    <i class="fas fa-arrow-left"></i>
+    Volver al Inicio
+</a>
+
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer>
+    <div class="container">
+        <p style="margin-bottom:15px;">
+            Copyright © 
+            <a href="home.html">SUACE - SABORES EXOTICOS DE MI TIERRA</a>
+        </p>
+        
+        <a href="home.html">
+            <img src="image/logo.jpg" width="45" height="45" alt="Logo">
+        </a>
+        
+        <div class="social" style="margin:20px 0;">
+            <a href="https://t.me/" target="_blank">
+                <img src="image/telegram.png" width="35" height="35" alt="Telegram">
+            </a>
+            <a href="https://github.com/" target="_blank">
+                <img src="image/github.png" width="35" height="35" alt="GitHub">
+            </a>
+        </div>
+    </div>
+</footer>
+
+
+<!-- ============================================================
+     SCRIPTS
+     ============================================================ -->
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+$('#formContacto').on('submit', function(e) {
+    e.preventDefault();
+    
+    var btn = $('.btn-enviar');
+    var textoOriginal = btn.html();
+    btn.html('<i class="fas fa-spinner fa-spin"></i> Enviando...').prop('disabled', true);
+    
+    var datos = $(this).serialize();
+    
+    $.ajax({
+        url: 'guardar_mensaje.php',
+        type: 'POST',
+        data: datos,
+        dataType: 'json',
+        success: function(res) {
+            btn.html(textoOriginal).prop('disabled', false);
+            
+            if (res.success) {
+                Swal.fire({
+                    icon: 'success',
+                    title: '¡Mensaje Enviado!',
+                    text: 'Gracias por contactarnos. Te responderemos pronto por WhatsApp.',
+                    confirmButtonColor: '#d4af37',
+                    confirmButtonText: 'Aceptar'
+                });
+                $('#formContacto')[0].reset();
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: res.mensaje || 'No se pudo enviar el mensaje',
+                    confirmButtonColor: '#d4af37'
+                });
+            }
+        },
+        error: function(xhr, status, error) {
+            btn.html(textoOriginal).prop('disabled', false);
+            console.error('Error:', error, xhr.responseText);
+            Swal.fire({
+                icon: 'error',
+                title: 'Error de Conexión',
+                text: 'Verifica tu conexión a internet',
+                confirmButtonColor: '#d4af37'
+            });
+        }
+    });
+});
+</script>
+
+</body>
+</html>
